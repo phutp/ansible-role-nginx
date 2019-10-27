@@ -1,0 +1,9 @@
+#
+# Main tasks:
+#   - Create nginx user, directories and download necessary packages
+#
+
+---
+- import_tasks: centos/nginx.yml
+  when: 
+    - ansible_distribution == 'CentOS' 

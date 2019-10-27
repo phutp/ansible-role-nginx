@@ -1,0 +1,30 @@
+---
+server_path_build: "/usr/src"
+
+nginx_version: "lastest"
+nginx_worker_processes: "auto"
+nginx_worker_rlimit_nofile: "1024"
+nginx_worker_connections: "1024"
+
+nginx_keepalive_timeout: "20"
+nginx_sendfile: "on"
+nginx_tcp_nopush: "on"
+nginx_client_max_body_size: "10M"
+
+nginx_gzip: "on"
+nginx_gzip_comp_level: "5"
+nginx_gzip_min_length: "256"
+nginx_gzip_proxied: "any"
+nginx_gzip_vary: "on"
+
+nginx_baseurl_centos: "http://nginx.org/packages/centos/{{ ansible_distribution_major_version }}/$basearch/"
+nginx_path_data: "/var/lib/nginx"
+nginx_path_log: "/var/log/nginx"
+nginx_user: "nginx"
+nginx_group: "nginx"
+nginx_default_configs:
+  - default.d
+  - security.d
+  - sites-available
+  - sites-enabled
+  - ssl.d
